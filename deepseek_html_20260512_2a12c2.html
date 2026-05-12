@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>四川贝多财务咨询有限公司 | 一站式财税与企业服务平台</title>
+    <!-- 引入 Font Awesome 6 (免费图标库) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 使用 Google Fonts 提升字体质感 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 16px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e4b6e, #2b7a4b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .logo p {
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c3e50;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #2b7a4b;
+        }
+        .mobile-toggle {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        /* 按钮 */
+        .btn-primary {
+            background: #2b7a4b;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(43,122,75,0.2);
+        }
+        .btn-primary:hover {
+            background: #1f5f3a;
+            transform: translateY(-2px);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(120deg, #f8fafc 0%, #ecfdf5 100%);
+            padding: 70px 0 80px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text .badge {
+            background: #d1fae5;
+            color: #14532d;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0f2b3d;
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 28px;
+            max-width: 550px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 30px;
+        }
+        .stat-item h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2b7a4b;
+        }
+        .hero-image {
+            flex: 0.8;
+            text-align: center;
+        }
+        .hero-image i {
+            font-size: 12rem;
+            color: #cbd5e1;
+            opacity: 0.6;
+        }
+
+        /* 通用区块 */
+        section {
+            padding: 70px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0f2b3d;
+        }
+        .section-sub {
+            text-align: center;
+            color: #5b6e8c;
+            max-width: 700px;
+            margin: 0 auto 48px auto;
+            font-size: 1rem;
+        }
+
+        /* 关于 / 文化卡片 */
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .about-text {
+            flex: 1.5;
+        }
+        .mission-box {
+            flex: 1;
+            background: #f1f5f9;
+            border-radius: 28px;
+            padding: 28px;
+        }
+        .mission-item {
+            margin-bottom: 24px;
+        }
+        .mission-item h4 {
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #eef2f6;
+            border-radius: 28px;
+            padding: 24px;
+            transition: all 0.2s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #cbd5e1;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+        }
+        .service-icon {
+            font-size: 2.2rem;
+            color: #2b7a4b;
+            margin-bottom: 18px;
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .service-card li {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .service-card li i {
+            font-size: 0.7rem;
+            color: #6cafa0;
+        }
+
+        /* 时间线 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .timeline-year {
+            font-weight: 800;
+            font-size: 1.2rem;
+            min-width: 90px;
+            color: #2b7a4b;
+        }
+        .timeline-desc {
+            background: #f8fafc;
+            padding: 12px 20px;
+            border-radius: 20px;
+            width: 100%;
+            border-left: 3px solid #2b7a4b;
+        }
+
+        /* 荣誉合作 */
+        .honor-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 50px;
+        }
+        .honor-badge {
+            background: #f1f5f9;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .partner-item {
+            background: white;
+            font-weight: 500;
+            color: #2c3e50;
+            padding: 6px 18px;
+            border-radius: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+        }
+
+        .case-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .case-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 60px;
+            padding: 8px 28px;
+            font-weight: 500;
+        }
+
+        /* 关联机构 */
+        .org-group {
+            background: #f1f5f9;
+            border-radius: 32px;
+            padding: 32px;
+            text-align: center;
+        }
+        .org-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        /* footer */
+        .footer {
+            background: #0f2b3d;
+            color: #cbd5e1;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .hero-grid {
+                flex-direction: column;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .timeline-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>四川贝多财务</h1>
+                <p>一站式财税与企业服务平台</p>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#services">服务</a></li>
+                <li><a href="#history">历程</a></li>
+                <li><a href="#honor">荣誉</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero 区 -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="badge"><i class="fas fa-chart-line"></i> 始于1999 · 诚信务实</span>
+                <h1>专业财税 · 赋能企业成长</h1>
+                <p>四川贝多财务咨询有限公司 — 四川省内早期获得财政厅代理记账许可的专业机构，累计服务企业超过<span style="font-weight:800;"> 30,000+</span> 家，以“一中心两基本”引领综合企业服务。</p>
+                <a href="#services" class="btn-primary">探索服务 <i class="fas fa-arrow-right"></i></a>
+                <div class="hero-stats">
+                    <div class="stat-item"><h3>26+</h3><span>资深团队</span></div>
+                    <div class="stat-item"><h3>30000+</h3><span>企业信赖</span></div>
+                    <div class="stat-item"><h3>20+年</h3><span>专业沉淀</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-building-columns"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 + 文化使命 -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">关于贝多</div>
+            <div class="section-sub">始于1999，扎根四川，致力于为企业提供高品质、高价值的全生命周期服务</div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p style="margin-bottom: 20px;"><strong>四川贝多财务咨询有限公司</strong>成立于2004年（前身1999年四川财旺财务），是四川省内获得四川省财政厅代理记账许可的早期机构之一。公司秉持<span style="background:#eef2ff; padding:2px 8px;">“以客户服务为中心，以员工幸福为基本，以企业稳定发展为基本”</span>的经营理念，经过二十余年发展，已形成集财务、税务、审计、评估、法务、知产、资质为一体的综合服务平台。</p>
+                    <p>公司控股股东为四川顶梁柱商标代理有限公司，并整合多家专业机构构建“四川贝多财税服务平台”生态，为客户提供工商注册、代理记账、税务筹划、审计验资、建筑资质、知识产权、法律服务等一站式解决方案。2023年成功入围中国工商银行四川成都分行拓户推荐业务项目，服务实力获官方认可。</p>
+                </div>
+                <div class="mission-box">
+                    <div class="mission-item">
+                        <h4><i class="fas fa-eye" style="color:#2b7a4b;"></i> 愿景</h4>
+                        <p>成为以财税为中心，认可度高的优秀企业服务平台。</p>
+                    </div>
+                    <div class="mission-item">
+                        <h4><i class="fas fa-bullhorn" style="color:#2b7a4b;"></i> 使命</h4>
+                        <p>提供高品质、高价值企业服务，孵化企业梦想实现。</p>
+                    </div>
+                    <div class="mission-item">
+                        <h4><i class="fas fa-heart" style="color:#2b7a4b;"></i> 价值观</h4>
+                        <p>正直诚信、专业精进、全面发展、团结奋斗。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心服务 板块 基于详细资料 -->
+    <section id="services" style="background: #fefcf9;">
+        <div class="container">
+            <div class="section-title">我们的服务</div>
+            <div class="section-sub">工商 · 财税 · 审计 · 知产 · 资质 · 法务 — 企业全维度助力</div>
+            <div class="service-grid">
+                <!-- 工商财税 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>工商财税</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 公司注册/变更/注销</li>
+                        <li><i class="fas fa-check-circle"></i> 代理记账、财务外包</li>
+                        <li><i class="fas fa-check-circle"></i> 税务策划、出口退税</li>
+                        <li><i class="fas fa-check-circle"></i> 财务清算、乱账清理</li>
+                    </ul>
+                </div>
+                <!-- 审计评估 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+                    <h3>审计评估</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 报表/专项/离任审计</li>
+                        <li><i class="fas fa-check-circle"></i> 高企认定/竣工决算审计</li>
+                        <li><i class="fas fa-check-circle"></i> 整体资产/房地产/无形资产评估</li>
+                        <li><i class="fas fa-check-circle"></i> 验资报告、司法审计</li>
+                    </ul>
+                </div>
+                <!-- 知识产权 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-copyright"></i></div>
+                    <h3>知识产权</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 商标注册/变更/续展/复审</li>
+                        <li><i class="fas fa-check-circle"></i> 发明专利/实用新型/外观专利</li>
+                        <li><i class="fas fa-check-circle"></i> 软著/美术/文字作品登记</li>
+                        <li><i class="fas fa-check-circle"></i> 商标转让、专利许可</li>
+                    </ul>
+                </div>
+                <!-- 建筑资质 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>建筑资质</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 房建/市政/机电/公路资质</li>
+                        <li><i class="fas fa-check-circle"></i> 装饰装修/消防/幕墙资质</li>
+                        <li><i class="fas fa-check-circle"></i> 资质升级、转让、延期</li>
+                        <li><i class="fas fa-check-circle"></i> 安全生产许可证代办</li>
+                    </ul>
+                </div>
+                <!-- 项目申报+补贴 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>项目申报 & 补贴</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 高新技术企业认定</li>
+                        <li><i class="fas fa-check-circle"></i> 企业创业补贴/科技项目申报</li>
+                        <li><i class="fas fa-check-circle"></i> 电商补贴/千人计划</li>
+                        <li><i class="fas fa-check-circle"></i> 政府各项补贴咨询</li>
+                    </ul>
+                </div>
+                <!-- 法律服务+行业许可 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-gavel"></i></div>
+                    <h3>法律 & 行业许可</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 公司法务/合同纠纷/侵权</li>
+                        <li><i class="fas fa-check-circle"></i> 食品/医疗/道路运输许可证</li>
+                        <li><i class="fas fa-check-circle"></i> 劳务派遣/人力资源/办学许可</li>
+                        <li><i class="fas fa-check-circle"></i> 危化品/烟草/增值电信许可</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <span class="honor-badge"><i class="fas fa-handshake"></i> 更多服务：保函办理 · 出口退税 · 离任审计 · 工程造价审计</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 发展历程时间线 -->
+    <section id="history">
+        <div class="container">
+            <div class="section-title">发展历程</div>
+            <div class="section-sub">二十五载深耕，笃行致远</div>
+            <div class="timeline">
+                <div class="timeline-item"><div class="timeline-year">1999年</div><div class="timeline-desc">四川财旺财务咨询有限公司成立，奠基财税服务基因。</div></div>
+                <div class="timeline-item"><div class="timeline-year">2001年</div><div class="timeline-desc">四川天一会计师事务所有限责任公司改制成功，增强审计实力。</div></div>
+                <div class="timeline-item"><div class="timeline-year">2004年</div><div class="timeline-desc">四川贝多财务咨询有限公司正式成立，服务体系成型。</div></div>
+                <div class="timeline-item"><div class="timeline-year">2005年</div><div class="timeline-desc">四川省财政厅颁发代理记账许可证书，全省最早之一。</div></div>
+                <div class="timeline-item"><div class="timeline-year">2007年</div><div class="timeline-desc">四川顶梁柱企业管理有限公司成立，客户突破2000家。</div></div>
+                <div class="timeline-item"><div class="timeline-year">2010-2014</div><div class="timeline-desc">客户突破5000家，2014年首次突破10000家企业服务规模。</div></div>
+                <div class="timeline-item"><div class="timeline-year">2015-2016</div><div class="timeline-desc">成立资质部，建筑资质办理超1000家；荣获“税务信用示范企业”“诚信企业”等荣誉。</div></div>
+                <div class="timeline-item"><div class="timeline-year">2018-2019</div><div class="timeline-desc">当选成都市代理记账协会理事单位，客户突破20000家，获最佳服务团队奖。</div></div>
+                <div class="timeline-item"><div class="timeline-year">2023年</div><div class="timeline-desc">服务客户突破30000家，参与全省税务示范审计，入围工商银行四川分行拓户推荐项目，完成股权升级改革。</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 荣誉资质 & 合作伙伴 -->
+    <section id="honor" style="background:#f9fafb;">
+        <div class="container">
+            <div class="section-title">荣誉与资质</div>
+            <div class="honor-list">
+                <span class="honor-badge">税务信用示范企业</span>
+                <span class="honor-badge">诚信企业</span>
+                <span class="honor-badge">财务信用企业</span>
+                <span class="honor-badge">管理先进单位</span>
+                <span class="honor-badge">成都市代理记账协会理事单位</span>
+                <span class="honor-badge">最佳服务团队奖</span>
+                <span class="honor-badge">四川省财政厅批准代理记账机构</span>
+            </div>
+            <div class="section-title" style="margin-top: 50px;">战略合作伙伴</div>
+            <div class="partner-logos">
+                <span class="partner-item">国家税务总局四川省税务局</span>
+                <span class="partner-item">中国银行/工行/建行/农行</span>
+                <span class="partner-item">交通银行 成都银行</span>
+                <span class="partner-item">国家知识产权局</span>
+                <span class="partner-item">四川省人社厅</span>
+                <span class="partner-item">人民日报/今日头条/百度</span>
+            </div>
+            <div class="section-title" style="margin-top: 50px;">成功案例（部分）</div>
+            <div class="case-logos">
+                <span class="case-item">中国石油</span><span class="case-item">中国中铁</span><span class="case-item">中国电建</span>
+                <span class="case-item">蓝光BRC</span><span class="case-item">通力电梯</span><span class="case-item">蜀大侠</span>
+                <span class="case-item">万象酒店</span><span class="case-item">鑫佰利装饰</span><span class="case-item">云图控股</span>
+                <span class="case-item">西华大学</span><span class="case-item">华海建设</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 平台关联机构 生态 -->
+    <section>
+        <div class="container">
+            <div class="section-title">贝多财税服务平台生态</div>
+            <div class="org-group">
+                <p style="margin-bottom: 20px; font-weight: 500;">整合专业资源，打造财税+法律+评估+建设一站式赋能</p>
+                <div class="org-logos">
+                    <span class="honor-badge">四川天一会计师事务所</span>
+                    <span class="honor-badge">四川顶梁柱企业管理</span>
+                    <span class="honor-badge">四川金算师税务师事务所</span>
+                    <span class="honor-badge">天之领建设股份</span>
+                    <span class="honor-badge">四川天一房地产土地资产评估</span>
+                    <span class="honor-badge">四川坤弘律师事务所</span>
+                    <span class="honor-badge">四川顶梁柱商标代理</span>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.85rem;"><i class="fas fa-shield-alt"></i> 平台共享 · 高效协同 · 值得信赖</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系及地址 -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">联系我们</div>
+            <div style="background: #f1f5f9; border-radius: 32px; padding: 40px; text-align: center;">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: #2b7a4b;"></i>
+                <p style="margin: 15px 0; font-size: 1.1rem;">成都市青羊区二环路西一段155号-1层8号</p>
+                <p><i class="fas fa-phone-alt"></i> 服务专线：028-XXXXXXX（欢迎咨询）</p>
+                <p><i class="fas fa-envelope"></i> 邮箱：service@beiduo.com</p>
+                <p style="margin-top: 20px; font-size: 0.85rem;">四川贝多财务咨询有限公司 | 一站式企业服务提供商  </p>
+                <div style="margin-top: 20px;">
+                    <a href="#" style="margin: 0 10px; color:#2b7a4b;"><i class="fab fa-weixin"></i> 官方微信</a>
+                    <a href="#" style="margin: 0 10px; color:#2b7a4b;"><i class="fab fa-linkedin"></i> 领英</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3 style="color:white;">四川贝多财务</h3>
+                <p>始于1999 · 陪伴企业成长</p>
+            </div>
+            <div class="footer-col">
+                <p>© 2025 四川贝多财务咨询有限公司</p>
+                <p>代理记账许可证 | 注册会计师业务资质</p>
+            </div>
+            <div class="footer-col">
+                <p><i class="fas fa-shield-alt"></i> 诚信 · 专业 · 高效</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 移动端菜单切换
+        const toggleBtn = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if(toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
